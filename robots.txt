@@ -1,0 +1,14 @@
+# 돈셈랩 (DonsemLab) — robots.txt
+# 급여·4대보험·퇴직금·세금 계산기
+
+User-agent: *
+Allow: /
+
+# 광고 크롤러(Google AdSense) 허용
+User-agent: Mediapartners-Google
+Allow: /
+
+User-agent: AdsBot-Google
+Allow: /
+
+Sitemap: https://minjikangg8-design.github.io/sitemap.xml

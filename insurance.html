@@ -1,0 +1,400 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>2026 4대보험 계산기 — 근로자·사업주 부담 · 시급·주휴수당 환산 | 돈셈랩</title>
+<meta name="description" content="2026년 4대보험 요율(국민연금 9.5%, 건강보험 7.19%, 장기요양 0.9448%, 고용보험 1.8%)로 근로자와 사업주가 각각 부담하는 금액을 계산합니다. 시급·주휴수당·월급·연봉 환산과 2026년 최저임금 10,320원 대비 점검까지 한 화면에서 확인하세요.">
+<link rel="canonical" href="https://minjikangg8-design.github.io/insurance.html">
+<meta name="theme-color" content="#0f172a">
+<meta property="og:type" content="article">
+<meta property="og:title" content="2026 4대보험 계산기 — 근로자·사업주 부담 · 시급·주휴수당 환산 | 돈셈랩">
+<meta property="og:description" content="근로자와 사업주가 각각 내는 4대보험료, 시급에서 월급으로(주휴수당 포함), 월급에서 시급으로 환산합니다.">
+<meta property="og:url" content="https://minjikangg8-design.github.io/insurance.html">
+<meta property="og:site_name" content="돈셈랩">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='8' fill='%230f172a'/%3E%3Ctext x='16' y='23' font-size='17' font-family='sans-serif' font-weight='bold' fill='%23ffffff' text-anchor='middle'%3E%E2%82%A9%3C/text%3E%3C/svg%3E">
+<link rel="stylesheet" href="assets/css/style.css">
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [
+    { "@type": "ListItem", "position": 1, "name": "돈셈랩", "item": "https://minjikangg8-design.github.io/" },
+    { "@type": "ListItem", "position": 2, "name": "4대보험·시급 계산기", "item": "https://minjikangg8-design.github.io/insurance.html" }
+  ]
+}
+</script>
+</head>
+<body>
+<a class="skip-link" href="#main">본문으로 바로가기</a>
+
+<header class="site-header">
+  <div class="container header-inner">
+    <a class="brand" href="index.html" aria-label="돈셈랩 홈">
+      <span class="brand-mark" aria-hidden="true">₩</span>
+      <span class="brand-name">돈셈랩<span class="brand-sub">DonsemLab</span></span>
+    </a>
+    <button class="nav-toggle" type="button" aria-expanded="false" aria-controls="site-nav" aria-label="메뉴 열기">
+      <span class="nav-toggle-bar"></span><span class="nav-toggle-bar"></span><span class="nav-toggle-bar"></span>
+    </button>
+    <nav class="site-nav" id="site-nav" aria-label="주요 메뉴">
+      <ul>
+        <li><a href="salary.html">연봉 실수령액</a></li>
+        <li><a href="insurance.html" aria-current="page">4대보험·시급</a></li>
+        <li><a href="severance.html">퇴직금·실업급여</a></li>
+        <li><a href="freelancer.html">프리랜서 3.3%</a></li>
+        <li><a href="yearend.html">연말정산 카드</a></li>
+      </ul>
+    </nav>
+  </div>
+</header>
+
+<main id="main">
+  <section class="page-head">
+    <div class="container">
+      <ul class="breadcrumb">
+        <li><a href="index.html">홈</a></li>
+        <li>4대보험·시급 계산기</li>
+      </ul>
+      <h1>2026 4대보험 계산기 · 시급·주휴수당 환산</h1>
+      <p>같은 월급이라도 근로자가 내는 돈과 사업주가 내는 돈은 다릅니다. 4대보험료를 양쪽으로 나눠 계산하고, 시급에서 월급으로(주휴수당 포함) 또는 월급에서 시급으로 환산합니다.</p>
+    </div>
+  </section>
+
+  <section class="section-tight">
+    <div class="container">
+      <div class="calc-card">
+        <div class="calc-card-head">
+          <h2>계산기</h2>
+          <span class="tag">2026년 요율</span>
+        </div>
+        <div class="calc-card-body">
+
+          <div data-tabs>
+            <div class="tabs" role="tablist" aria-label="계산 종류">
+              <button class="tab-btn" role="tab" id="tab-ins" aria-controls="panel-ins" aria-selected="true" type="button">4대보험 상세</button>
+              <button class="tab-btn" role="tab" id="tab-hourly" aria-controls="panel-hourly" aria-selected="false" tabindex="-1" type="button">시급·주휴수당 환산</button>
+            </div>
+
+            <!-- 4대보험 -->
+            <div class="tab-panel" id="panel-ins" role="tabpanel" aria-labelledby="tab-ins">
+              <div class="calc-grid">
+                <form onsubmit="return false;">
+                  <div class="field">
+                    <label for="ins-pay">월 보수 (세전)</label>
+                    <div class="input-unit">
+                      <input class="input" id="ins-pay" type="text" inputmode="numeric" data-format="comma" value="3,000,000" autocomplete="off">
+                      <span class="unit">원</span>
+                    </div>
+                    <span class="hint">비과세 수당을 제외한 보수월액 기준입니다.</span>
+                  </div>
+                  <div class="field">
+                    <label for="ins-size">사업장 규모</label>
+                    <select class="input" id="ins-size">
+                      <option value="small" selected>150명 미만 (고용안정 0.25%)</option>
+                      <option value="mid1">150명 이상 우선지원대상기업 (0.45%)</option>
+                      <option value="mid2">150~1,000명 미만 (0.65%)</option>
+                      <option value="large">1,000명 이상·국가·지방자치단체 (0.85%)</option>
+                    </select>
+                    <span class="hint">고용안정·직업능력개발 보험료는 사업주만 부담합니다.</span>
+                  </div>
+                  <div class="field">
+                    <label for="ins-injury">산재보험료율 (업종별)</label>
+                    <div class="input-unit">
+                      <input class="input" id="ins-injury" type="text" inputmode="decimal" value="1.47">
+                      <span class="unit">%</span>
+                    </div>
+                    <span class="hint">2026년 평균 1.47%. 업종별 0.5~18.5%</span>
+                  </div>
+                  <div class="callout callout-tip mt-16">
+                    <p><strong>사업주가 확인할 것</strong> — 근로자 몫은 급여에서 공제되지만, 사업주 몫은 회사가 별도로 부담합니다. 총 인건비는 급여의 약 110~111%로 잡아야 합니다.</p>
+                  </div>
+                </form>
+
+                <div class="result" aria-live="polite">
+                  <div class="result-hero">
+                    <div class="label">근로자 월 부담 (4대보험)</div>
+                    <div class="value" id="ins-employee-total">-</div>
+                    <div class="sub" id="ins-employee-rate">급여에서 공제되는 금액</div>
+                  </div>
+                  <div class="mini-grid">
+                    <div class="mini"><div class="k">사업주 월 부담</div><div class="v" id="ins-employer-total">-</div></div>
+                    <div class="mini"><div class="k">사업주 부담률</div><div class="v" id="ins-employer-rate">-</div></div>
+                    <div class="mini"><div class="k">월 총 인건비</div><div class="v" id="ins-total-cost">-</div></div>
+                    <div class="mini mini-emerald"><div class="k">국민연금 기준소득월액</div><div class="v" id="ins-pension-base">-</div></div>
+                  </div>
+                  <div class="table-wrap">
+                    <table class="data" style="min-width:520px">
+                      <caption id="ins-size-label">사업장 규모: 150명 미만</caption>
+                      <thead>
+                        <tr>
+                          <th scope="col">보험</th>
+                          <th scope="col" class="num">근로자 요율</th>
+                          <th scope="col" class="num">근로자</th>
+                          <th scope="col" class="num">사업주 요율</th>
+                          <th scope="col" class="num">사업주</th>
+                        </tr>
+                      </thead>
+                      <tbody id="ins-breakdown"></tbody>
+                    </table>
+                  </div>
+                  <p class="result-note">10원 미만은 절사했습니다. 국민연금은 기준소득월액 상·하한(41만~659만 원)을 적용하며, 산재보험료율은 사업장별 고시 요율로 바꿔 넣으세요.</p>
+                </div>
+              </div>
+            </div>
+
+            <!-- 시급·주휴수당 -->
+            <div class="tab-panel" id="panel-hourly" role="tabpanel" aria-labelledby="tab-hourly" hidden>
+              <div class="calc-grid">
+                <form onsubmit="return false;">
+                  <div class="field">
+                    <span class="label">환산 방향</span>
+                    <div class="segmented" role="radiogroup" aria-label="환산 방향">
+                      <input type="radio" id="hw-mode-wage" name="hw-mode" value="wage" checked>
+                      <label for="hw-mode-wage">시급 → 월급</label>
+                      <input type="radio" id="hw-mode-monthly" name="hw-mode" value="monthly">
+                      <label for="hw-mode-monthly">월급 → 시급</label>
+                    </div>
+                  </div>
+
+                  <div id="hw-panel-wage">
+                    <div class="field">
+                      <label for="hw-wage">시급</label>
+                      <div class="input-unit">
+                        <input class="input" id="hw-wage" type="text" inputmode="numeric" data-format="comma" value="10,320" autocomplete="off">
+                        <span class="unit">원</span>
+                      </div>
+                      <span class="hint">2026년 최저임금은 10,320원입니다.</span>
+                    </div>
+                  </div>
+
+                  <div id="hw-panel-monthly" hidden>
+                    <div class="field">
+                      <label for="hw-monthly-input">월급 (세전)</label>
+                      <div class="input-unit">
+                        <input class="input" id="hw-monthly-input" type="text" inputmode="numeric" data-format="comma" value="2,156,880" autocomplete="off">
+                        <span class="unit">원</span>
+                      </div>
+                      <span class="hint">주휴수당이 포함된 월급을 넣으세요.</span>
+                    </div>
+                  </div>
+
+                  <div class="field-row">
+                    <div class="field">
+                      <label for="hw-hours">1일 근로시간</label>
+                      <div class="input-unit">
+                        <input class="input" id="hw-hours" type="number" inputmode="decimal" min="1" max="24" step="0.5" value="8">
+                        <span class="unit">시간</span>
+                      </div>
+                    </div>
+                    <div class="field">
+                      <label for="hw-days">주 근무일수</label>
+                      <div class="input-unit">
+                        <input class="input" id="hw-days" type="number" inputmode="numeric" min="1" max="7" step="1" value="5">
+                        <span class="unit">일</span>
+                      </div>
+                    </div>
+                  </div>
+                  <p class="text-xs muted">주 15시간 이상 근무하면 주휴수당이 발생하며, 월 소정근로시간은 주 40시간제 기준 209시간으로 환산합니다.</p>
+
+                  <div class="callout callout-warn mt-16" id="hw-warning" hidden>
+                    <p>최저임금 미만입니다.</p>
+                  </div>
+                </form>
+
+                <div class="result" aria-live="polite">
+                  <div id="hw-panel-wage-result">
+                    <div class="result-hero">
+                      <div class="label">월 예상 급여 (주휴수당 포함)</div>
+                      <div class="value" id="hw-w-monthly">-</div>
+                      <div class="sub">시급 × 월 소정근로시간 <span id="hw-w-hours">-</span></div>
+                    </div>
+                    <div class="mini-grid">
+                      <div class="mini"><div class="k">주급 합계</div><div class="v" id="hw-w-weekly">-</div></div>
+                      <div class="mini"><div class="k">주휴수당</div><div class="v" id="hw-w-holiday">-</div></div>
+                      <div class="mini"><div class="k">주 소정근로</div><div class="v" id="hw-w-week-hours">-</div></div>
+                      <div class="mini"><div class="k">주휴 시간</div><div class="v" id="hw-w-holiday-hours">-</div></div>
+                    </div>
+                    <div class="table-wrap">
+                      <table class="data">
+                        <caption>연봉 환산</caption>
+                        <tbody>
+                          <tr><th scope="row">월 예상 급여</th><td class="num" id="hw-w-monthly-2">-</td></tr>
+                          <tr class="total"><td>연봉 환산 (×12)</td><td class="num" id="hw-w-annual">-</td></tr>
+                        </tbody>
+                      </table>
+                    </div>
+                  </div>
+
+                  <div id="hw-panel-monthly-result" hidden>
+                    <div class="result-hero">
+                      <div class="label">환산 시급</div>
+                      <div class="value" id="hw-m-hourly">-</div>
+                      <div class="sub">월급 ÷ 월 소정근로시간 <span id="hw-m-hours">-</span></div>
+                    </div>
+                    <div class="mini-grid">
+                      <div class="mini"><div class="k">주 소정근로</div><div class="v" id="hw-m-weekly-hours">-</div></div>
+                      <div class="mini"><div class="k">주휴 시간</div><div class="v" id="hw-m-holiday">-</div></div>
+                      <div class="mini"><div class="k">월 소정근로</div><div class="v" id="hw-m-hours-2">-</div></div>
+                      <div class="mini mini-emerald"><div class="k">연봉 환산</div><div class="v" id="hw-m-annual">-</div></div>
+                    </div>
+                    <p class="result-note">월급에 주휴수당이 포함되어 있다는 전제의 환산값입니다. 주휴수당을 별도로 받는다면 시급이 조금 더 높게 계산됩니다.</p>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section section-alt">
+    <div class="container">
+      <div class="prose">
+        <h2>4대보험이란 무엇이고 왜 절반씩 내나</h2>
+        <p>4대보험은 국민연금·건강보험(장기요양보험 포함)·고용보험·산재보험을 묶어 부르는 말입니다. 이 중 국민연금, 건강보험, 고용보험(실업급여분)은 법이 근로자와 사업주에게 <strong>각각 절반</strong>을 부담하도록 정하고 있습니다. 산재보험과 고용안정·직업능력개발 보험료는 사업주가 전액 부담합니다. 그래서 급여명세서에서 빠지는 금액과 회사가 추가로 쓰는 금액이 다릅니다.</p>
+
+        <h3>2026년 요율표</h3>
+        <div class="table-wrap">
+          <table class="data">
+            <caption>2026년 4대보험 요율과 근거 법령</caption>
+            <thead>
+              <tr><th scope="col">보험</th><th scope="col" class="num">총 요율</th><th scope="col" class="num">근로자</th><th scope="col" class="num">사업주</th><th scope="col">근거</th></tr>
+            </thead>
+            <tbody>
+              <tr><th scope="row">국민연금</th><td class="num">9.5%</td><td class="num">4.75%</td><td class="num">4.75%</td><td>국민연금법 부칙</td></tr>
+              <tr><th scope="row">건강보험</th><td class="num">7.19%</td><td class="num">3.595%</td><td class="num">3.595%</td><td>국민건강보험법 시행령 제44조</td></tr>
+              <tr><th scope="row">장기요양보험</th><td class="num">건강보험료의 13.14%</td><td class="num">절반</td><td class="num">절반</td><td>노인장기요양보험법 제9조</td></tr>
+              <tr><th scope="row">고용보험(실업급여)</th><td class="num">1.8%</td><td class="num">0.9%</td><td class="num">0.9%</td><td>보험료징수법 시행령 제12조</td></tr>
+              <tr><th scope="row">고용안정·직업능력개발</th><td class="num">0.25~0.85%</td><td class="num">0%</td><td class="num">전액</td><td>사업장 규모별</td></tr>
+              <tr><th scope="row">산재보험</th><td class="num">업종별 0.5~18.5%</td><td class="num">0%</td><td class="num">전액</td><td>고용노동부 고시</td></tr>
+            </tbody>
+          </table>
+        </div>
+        <p>근로자 몫을 모두 더하면 4.75% + 3.595% + 0.4724% + 0.9% = <strong>9.7174%</strong>입니다. 월 보수 300만 원이면 291,522원가량이 4대보험으로 빠지고, 사업주는 여기에 고용안정·산재를 더해 34만 원 안팎을 별도로 냅니다. 결국 사업주가 쓰는 월 인건비는 3,343,122원으로, 급여보다 약 11.4% 많습니다.</p>
+
+        <h3>국민연금에만 상한과 하한이 있습니다</h3>
+        <p>건강보험·장기요양·고용보험은 월 보수 전액에 요율을 곱하지만, 국민연금은 <strong>기준소득월액</strong>을 씁니다. 2026년 7월부터 적용되는 기준소득월액은 최저 41만 원, 최고 659만 원입니다. 월 1,000만 원을 받아도 659만 원까지만 보험료가 매겨져 근로자 부담은 313,020원이 상한입니다. 반대로 월 30만 원을 받아도 41만 원 기준으로 계산합니다. 단시간 근로자의 4대보험료가 월급에 비해 상대적으로 커 보이는 이유입니다.</p>
+
+        <h3>건강보험료에도 상·하한이 있습니다</h3>
+        <p>2026년 직장가입자 보수월액보험료는 상한 9,183,480원, 하한 20,160원입니다. 근로자 몫으로는 최고 4,591,740원, 최저 10,080원입니다. 즉 월 보수가 약 28만 원보다 적어도 근로자는 건강보험료 10,080원을 냅니다. 여기에 장기요양보험료가 건강보험료의 13.14%로 붙습니다.</p>
+
+        <h2>시급·주휴수당·월급은 이렇게 환산합니다</h2>
+        <p>근로기준법 제55조는 사용자가 1주일에 평균 1회 이상 유급휴일을 주도록 정하고 있습니다. 이때 지급하는 것이 <strong>주휴수당</strong>이고, 다음 두 조건을 모두 채워야 발생합니다. 첫째, 1주 소정근로시간이 15시간 이상이어야 합니다. 둘째, 그 주에 정해진 근무일을 모두 출근해야 합니다. 결근하면 그 주의 주휴수당은 발생하지 않습니다.</p>
+        <div class="formula">
+          <p>주휴 시간 = min(8시간, (1주 소정근로시간 ÷ 40) × 8)</p>
+          <p>주휴수당 = 시급 × 주휴 시간</p>
+          <p>월 소정근로시간 = (1주 소정근로시간 + 주휴 시간) × 4.345주 → 주 40시간제는 209시간</p>
+          <p>월급 = 시급 × 월 소정근로시간</p>
+        </div>
+        <p>예를 들어 시급 10,320원으로 하루 8시간, 주 5일 일하면 1주 근로 40시간에 주휴 8시간이 붙어 48시간입니다. 주급은 495,360원, 월급은 2,156,880원(209시간 기준)이 됩니다. 2026년 최저임금 월 환산액이 정확히 이 금액입니다. 하루 6시간, 주 3일이라면 1주 18시간에 주휴 3.6시간이 붙어 21.6시간이 되고, 월 소정근로시간은 94시간으로 환산됩니다.</p>
+
+        <h3>209시간은 어디서 나온 숫자인가요</h3>
+        <p>1년은 365일, 1주는 7일이므로 한 달은 평균 4.345주(365÷7÷12)입니다. 주 40시간 근로에 주휴 8시간을 더한 48시간에 4.345를 곱하면 208.56시간이 나오고, 실무에서는 이를 반올림해 <strong>209시간</strong>으로 씁니다. 최저임금 월 환산액, 연장근로수당 계산, 퇴직금 산정의 기준이 모두 이 209시간에서 출발합니다.</p>
+
+        <h2>사업주가 자주 놓치는 것</h2>
+        <ul>
+          <li><strong>총 인건비를 급여로만 잡는 경우</strong> — 사업주 부담 4대보험료(약 11%)와 퇴직급여충당금(연 급여의 8.33%)을 더해야 실제 인건비가 됩니다. 월급 300만 원 직원 한 명의 실질 비용은 월 335만 원 안팎입니다.</li>
+          <li><strong>65세 이후 새로 고용된 근로자의 고용보험</strong> — 65세 전부터 피보험 자격을 유지한 경우가 아니라면 실업급여 보험료를 징수하지 않습니다. 이 계산기는 이 예외를 반영하지 않으므로 해당되면 고용보험 0.9%를 빼고 보세요.</li>
+          <li><strong>산재보험료율을 평균값으로 두는 경우</strong> — 업종별 요율은 0.5~18.5%까지 차이가 큽니다. 건설·제조·광업은 평균보다 훨씬 높으므로 고용노동부 고시에서 자기 업종 요율을 확인해 입력해야 합니다.</li>
+          <li><strong>주 15시간 미만 초단시간 근로자</strong> — 1주 소정근로시간이 15시간 미만이면 고용보험(실업급여) 적용에서 제외되고, 국민연금·건강보험도 원칙적으로 사업장가입 대상이 아닙니다. 산재보험은 업종에 따라 다르게 적용되므로 공단에 확인하세요.</li>
+        </ul>
+
+        <h2>근로자가 확인할 것</h2>
+        <ul>
+          <li>급여명세서의 4대보험 금액이 <strong>보수월액</strong> 기준인지 확인하세요. 비과세 식대가 보수월액에 포함되어 있으면 실제보다 많이 공제된 것입니다.</li>
+          <li>국민연금 금액이 월급의 4.75%보다 적다면 기준소득월액 상한(659만 원)이 적용된 것이니 정상입니다.</li>
+          <li>주휴수당이 월급에 포함되어 있는지 근로계약서를 확인하세요. "월급 200만 원(주휴 포함)"과 "월급 200만 원 + 주휴수당 별도"는 실제 시급이 다릅니다.</li>
+        </ul>
+      </div>
+
+      <div class="source-note">
+        <p><strong>계산 기준과 출처</strong> — 국민연금법 제88조 및 부칙 제4조(2026년 9.5%), 국민건강보험법 시행령 제44조(7.19%), 노인장기요양보험법 제9조·시행령 제4조(0.9448%), 고용보험 및 산재보험의 보험료징수 등에 관한 법률 시행령 제12조(실업급여 1.8%), 보건복지부 고시 제2025-222호(보험료 상·하한), 고용노동부 2026년도 사업종류별 산재보험료율, 최저임금위원회 2026년 최저임금(10,320원), 근로기준법 제55조(주휴일).</p>
+        <p>요율과 상·하한은 매년 바뀝니다. 정확한 고지 금액은 4대사회보험 정보연계센터 또는 각 공단 고지서에서 확인하세요.</p>
+      </div>
+      <p class="disclaimer">계산 결과는 참고용입니다. 실제 보험료는 사업장 신고 내용, 업종, 근로 형태에 따라 달라질 수 있습니다.</p>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="container">
+      <div class="section-head"><h2>자주 묻는 질문</h2></div>
+      <div class="faq">
+        <details>
+          <summary>시급 10,320원으로 주 5일, 하루 8시간 일하면 월급이 얼마인가요?</summary>
+          <div class="answer">
+            <p>주휴수당을 포함해 <strong>2,156,880원</strong>입니다. 1주 근로 40시간에 주휴 8시간을 더한 48시간이 주급 495,360원이 되고, 여기에 4.345주를 곱하면 월 2,152,457원이지만 실무에서는 월 소정근로시간을 209시간으로 반올림해 10,320원 × 209시간 = 2,156,880원으로 계산합니다. 2026년 최저임금의 월 환산액과 같은 금액입니다.</p>
+          </div>
+        </details>
+        <details>
+          <summary>주휴수당을 안 주면 어떻게 되나요?</summary>
+          <div class="answer">
+            <p>주휴수당은 근로기준법이 정한 임금입니다. 지급하지 않으면 임금체불에 해당하며, 사업장 관할 고용노동청에 진정을 넣을 수 있습니다. 근로계약서, 출퇴근 기록, 급여명세서를 준비하면 확인이 빠릅니다. 다만 주 15시간 미만 근무이거나 그 주에 결근이 있었다면 발생하지 않습니다.</p>
+          </div>
+        </details>
+        <details>
+          <summary>월급 300만 원 직원 한 명의 실제 인건비는 얼마인가요?</summary>
+          <div class="answer">
+            <p>위 계산기 기본 설정(150명 미만 사업장, 산재 1.47%) 기준으로 사업주 부담은 <strong>343,122원</strong>이고, 총 인건비는 <strong>3,343,122원</strong>입니다. 여기에 퇴직급여충당금(연 급여의 1/12 수준)을 더하면 월 358만 원가량으로 보는 것이 안전합니다. 사업장 규모가 크거나 산재 요율이 높은 업종이면 더 늘어납니다.</p>
+          </div>
+        </details>
+        <details>
+          <summary>근로자 4대보험료가 월급의 9.7%인데 왜 명세서는 더 많이 빠지나요?</summary>
+          <div class="answer">
+            <p>4대보험은 9.72%가 맞고, 여기에 근로소득세와 지방소득세가 더해집니다. 4대보험은 부양가족 수와 무관하게 보수월액에만 매겨지므로, 공제가 많아 보인다면 소득세 비중이 큰 경우입니다. <a href="salary.html">연봉 실수령액 계산기</a>에서 항목별로 나눠 확인할 수 있습니다.</p>
+          </div>
+        </details>
+        <details>
+          <summary>아르바이트생도 4대보험에 가입되나요?</summary>
+          <div class="answer">
+            <p>근무 시간에 따라 다릅니다. 1주 소정근로시간이 15시간 이상이면 고용보험·국민연금·건강보험이 원칙적으로 적용됩니다. 15시간 미만 초단시간 근로자는 고용보험(실업급여) 적용에서 제외되고 국민연금·건강보험도 원칙적으로 사업장가입 대상이 아닙니다. 산재보험은 업종별로 적용 범위가 다르므로 사업장에서 확인해야 합니다.</p>
+          </div>
+        </details>
+        <details>
+          <summary>국민연금을 4.75%로 곱했는데 계산 결과가 다릅니다.</summary>
+          <div class="answer">
+            <p>국민연금은 월급 전액이 아니라 기준소득월액(2026년 7월 기준 41만~659만 원, 천 원 미만 절사)에 요율을 곱합니다. 월급이 상한을 넘으면 659만 원 기준으로, 하한보다 적으면 41만 원 기준으로 계산됩니다. 이 계산기는 두 경우를 모두 반영합니다.</p>
+          </div>
+        </details>
+      </div>
+    </div>
+  </section>
+
+  <section class="section section-alt">
+    <div class="container">
+      <div class="section-head"><h2>함께 보면 좋은 계산기</h2></div>
+      <div class="related">
+        <a href="salary.html">연봉 실수령액<span>4대보험 + 소득세</span></a>
+        <a href="severance.html">퇴직금 · 실업급여<span>3개월 급여 기준</span></a>
+        <a href="yearend.html">연말정산 카드공제<span>25% 문턱 계산</span></a>
+        <a href="freelancer.html">프리랜서 3.3%<span>원천징수와 환급</span></a>
+      </div>
+    </div>
+  </section>
+</main>
+
+<footer class="site-footer">
+  <div class="container footer-inner">
+    <div class="footer-brand">
+      <p class="footer-title">돈셈랩 <span>DonsemLab</span></p>
+      <p class="footer-desc">월급·4대보험·퇴직금·세금을 30초에 확인하는 생활 계산기.</p>
+    </div>
+    <nav class="footer-nav" aria-label="사이트 정보">
+      <ul>
+        <li><a href="about.html">사이트 소개</a></li>
+        <li><a href="privacy.html">개인정보처리방침</a></li>
+        <li><a href="terms.html">이용약관</a></li>
+        <li><a href="contact.html">문의하기</a></li>
+      </ul>
+    </nav>
+    <p class="footer-note">계산 결과는 참고용이며 법적 효력이 없습니다. 실제 세액·보험료는 개인 상황과 관계기관 고시에 따라 달라질 수 있습니다.</p>
+    <p class="footer-copy">© 2026 돈셈랩(DonsemLab). All rights reserved.</p>
+  </div>
+</footer>
+
+<script src="assets/js/site.js"></script>
+<script src="assets/js/calc.js"></script>
+</body>
+</html>
